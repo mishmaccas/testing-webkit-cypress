@@ -6,6 +6,7 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
    baseUrl: "https://google.com",
+   supportFile: "cypress/support/index.js",
    experimentalWebKitSupport: true,
    experimentalSessionAndOrigin: true
   }

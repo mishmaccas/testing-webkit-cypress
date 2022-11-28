@@ -7,7 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "cy:open": "npx cypress open",
     "cy:webkit-fixtures": "cypress run --config '{\"specPattern\":[\"**/fixtures.cy.js\"]}' --browser webkit --headed",
-    "cy:webkit-origin": "cypress run --config '{\"specPattern\":[\"**/cross*.cy.js\"]}' --browser webkit --headed"
+    "cy:webkit-origin": "cypress run --config '{\"specPattern\":[\"**/cross*.cy.js\"]}' --browser webkit --headed",
+    "cy:webkit-visit-knox": "CYPRESS_BASE_URL=https://www.knox.vic.gov.au/https://www.aesop.com/au cypress run --config '{\"specPattern\":[\"**/visit.cy.js\"]}' --browser webkit --headed",
+    "cy:webkit-visit-aesop": "CYPRESS_BASE_URL=https://www.aesop.com/ cypress run --config '{\"specPattern\":[\"**/visit.cy.js\"]}' --browser webkit --headed"
 
   },
   "author": "",

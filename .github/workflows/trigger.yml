@@ -1,0 +1,16 @@
+name: Trigger Workflow
+on:
+  push:
+    branches:
+      - main
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Workflow
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.ARGOS_SMOKE_TESTING_TOKEN }}
+          repository: aesop/argos
+          event-type: <event-name>
+          client-payload: '{"key1": "value1", "key2": "value2"}'

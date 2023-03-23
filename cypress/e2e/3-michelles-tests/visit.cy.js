@@ -1,11 +1,12 @@
 context('visit testing with webkit', () => {
     beforeEach(() => {
-        cy.visit(Cypress.config().baseUrl); // "https://www.knox.vic.gov.au/"
-        
+        cy.visit(Cypress.config().baseUrl);  
         cy.viewport("macbook-16")
     })
 
     it('visit knox council', () => {
+
+        // Run cy:webkit-visit-knox
 
         cy.visit("our-services/animals-and-pets/pet-registration/pet-registration")
         cy.get("h1").contains("Register my pet or renew registration").should("be.visible")
@@ -16,6 +17,8 @@ context('visit testing with webkit', () => {
     })
 
     it.only('visit aesop', () => {
+
+        // cy:webkit-visit-aesop
 
         cy.visit("jp/")
         cy.get("h1").contains("空間の詩情").should("be.visible")

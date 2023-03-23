@@ -1,0 +1,19 @@
+name: Test Workflow
+on:
+  workflow_dispatch
+
+env:
+  REGION: ${{ github.event.inputs.region }}
+  CYPRESS_BASE_URL: ${{ github.event.inputs.environment }}
+  CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+  GITHUB_TOKEN: ${{ secrets.X_GITHUB_TOKEN }}
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch Smoke Tests Via Curl
+        run: |
+          curl -L \ -X POST \ -H "Accept: application/vnd.github+json" \
+          -H "Authorization: Bearer ${GITHUB_TOKEN}"  \
+          https://api.github.com/repos/aesop/argos/actions/workflows/smoke.yml/dispatches \ 
+          -d '{"ref":"smoke-tests","inputs":{"browser":"electron","region":"au"}}'
